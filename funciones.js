@@ -1,7 +1,8 @@
 //Arbol Barco Cielo Disco Enero Amor Azul Casa "Flor" Luna Luz Mar Pan Sol Paz
-palabras = ["acuario","bandera","caminar","destino","energía",
+palabras = ["acuario","bandera","caminar","destino","energia",
     "blanco","cuaderno","espejo","fuego","gato","arbol","barco",
     "cielo","disco","amor","azul","casa","flor","luna","luz","mar","pan", "sol","paz"]
+
 numero = Math.floor(Math.random() * palabras.length) + 1;
 palabra = palabras[numero];
 console.log(numero)
@@ -12,6 +13,7 @@ palabraLong = palabra.length
 boton = document.getElementById("probar")
 intentosHtml = document.getElementById("intentos")
 mensajes = document.getElementById("mensaje")
+bgCard = document.getElementsByClassName("main")
 
 img = document.getElementById("ahorcado")
 intentosHtml.textContent = intentos
@@ -31,15 +33,19 @@ longitudPalabra(palabraLong-1)
 
 boton.addEventListener('click',()=>{
     adividarLetra(palabra)
+    limpiarInput()
     console.log(letra.value)
 })
 letra.addEventListener('keypress',(e)=>{
     if(e.key === 'Enter'){
         adividarLetra(palabra)
+        limpiarInput()
     }
 })
 
-
+function limpiarInput(){
+    letra.value = ""
+}
 
 function longitudPalabra(palabra){
     switch (palabra){
@@ -89,9 +95,16 @@ function longitudPalabra(palabra){
    
 }
 
+function cambiarBgColor(letra,long){
+      ultimoCaracter = palabra.substr(-1)
+        if(letra == ultimoCaracter && palabraCompletada.length == long){
+            bgCard[0].style.backgroundColor = "#22B342"
+        }
+        console.log(ultimoCaracter)
+}
 
 
-function colocarLetra(posicion,letra){
+function colocarLetra(posicion,letra,long){
    switch (posicion){
     case 0:
         letra1.textContent = letra
@@ -103,23 +116,23 @@ function colocarLetra(posicion,letra){
         break;
     case 2:
         letra3.textContent = letra
-        
+        cambiarBgColor(letra,long)
         break;
     case 3:
         letra4.textContent = letra
-       
+        cambiarBgColor(letra,long)
         break;
     case 4:
         letra5.textContent = letra
-       
+        cambiarBgColor(letra,long)
         break;
     case 5:
         letra6.textContent = letra
-
+        cambiarBgColor(letra,long)
         break;
     case 6:
         letra7.textContent = letra
-
+        cambiarBgColor(letra,long)
         break;
    }
    
@@ -134,9 +147,10 @@ verificar = false
             verificar = true
             console.log("Si esta la letra "+ letra.value)
             palabraCompletada = palabraCompletada+  letra.value
-            colocarLetra(i,letra.value)
+            colocarLetra(i,letra.value,palabraLong)
            
-        }else{
+        }
+        else{
             console.log(palabra[i])
            
         }
@@ -156,27 +170,9 @@ verificar = false
             
             
     }
-    if(palabra.length == palabraCompletada.length){
-        
-
-    }
-    /*if(palabra.length == palabraCompletada.length){
-        ordenarPalabra(palabraCompletada)
-
-    }else{
-        console.log("no se llama la funcion "+ palabraCompletada )
-    }*/
+   
+    
 
 }
 
-/*palabraResultado = ""
-function ordenarPalabra(palabraOrdenada){
-    for(i=0; i<palabraOrdenada.length;i++){
-        if(palabra[i] == palabraOrdenada[i]){ /// ohla
-             palabraResultado = palabraResultado+ palabra[i]
-             
-        }
-    }
-    mensajes.textContent = palabraResultado
-    
-}*/
+

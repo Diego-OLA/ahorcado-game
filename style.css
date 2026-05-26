@@ -11,6 +11,8 @@ body{
 }
 .imgAhorcado{
     height: 200px;
+        background-color: transparent; /* Fondo transparente */
+    mix-blend-mode: multiply; /* Mezcla para eliminar blanco */
 }
 
 .main{
@@ -19,7 +21,7 @@ body{
     flex-direction: column;
     background-color: burlywood;
     gap: 10px;
-    width: 50%;
+    width: 70%;
      box-shadow: 10px 10px lightblue;
     border-radius: 20px;
 }
