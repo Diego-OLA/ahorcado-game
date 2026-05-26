@@ -1,0 +1,33 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    background-color: rgb(224, 219, 228);
+      min-height: 100vh;  
+    
+    
+}
+.imgAhorcado{
+    height: 200px;
+}
+
+.main{
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    background-color: burlywood;
+    gap: 10px;
+    width: 50%;
+     box-shadow: 10px 10px lightblue;
+    border-radius: 20px;
+}
+
+.completar{
+    display: flex;
+}
+.espacios{
+  gap: 10px;
+    display: flex;
+}
