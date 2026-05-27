@@ -95,44 +95,44 @@ function longitudPalabra(palabra){
    
 }
 
-function cambiarBgColor(letra,long){
+function cambiarBgColor(letra,long,idLetra){
       ultimoCaracter = palabra.substr(-1)
-        if(letra == ultimoCaracter && palabraCompletada.length == long){
+        if(palabraCompletada.length == long){
             bgCard[0].style.backgroundColor = "#22B342"
         }
-        console.log(ultimoCaracter)
+        console.log("ultimo caracter: "+ ultimoCaracter+ " este es palabraIdletra: "+palabra[idLetra] )
 }
 
 
 function colocarLetra(posicion,letra,long){
    switch (posicion){
     case 0:
-        letra1.textContent = letra
-       
+        letra1.textContent = letra.toLowerCase()
+       cambiarBgColor(letra,long,0)
         break;
     case 1: 
-        letra2.textContent = letra
-        
+        letra2.textContent = letra.toLowerCase()
+        cambiarBgColor(letra,long,1)
         break;
     case 2:
-        letra3.textContent = letra
-        cambiarBgColor(letra,long)
+        letra3.textContent = letra.toLowerCase()
+        cambiarBgColor(letra,long,2)
         break;
     case 3:
-        letra4.textContent = letra
-        cambiarBgColor(letra,long)
+        letra4.textContent = letra.toLowerCase()
+        cambiarBgColor(letra,long,3)
         break;
     case 4:
-        letra5.textContent = letra
-        cambiarBgColor(letra,long)
+        letra5.textContent = letra.toLowerCase()
+        cambiarBgColor(letra,long,4)
         break;
     case 5:
-        letra6.textContent = letra
-        cambiarBgColor(letra,long)
+        letra6.textContent = letra.toLowerCase()
+        cambiarBgColor(letra,long,5)
         break;
     case 6:
-        letra7.textContent = letra
-        cambiarBgColor(letra,long)
+        letra7.textContent = letra.toLowerCase()
+        cambiarBgColor(letra,long,6)
         break;
    }
    
@@ -143,7 +143,7 @@ verificar = false
     for(i = 0; i<palabra.length;i++){
 
         
-        if(letra.value == palabra[i]){
+        if(letra.value.toLowerCase() == palabra[i]){
             verificar = true
             console.log("Si esta la letra "+ letra.value)
             palabraCompletada = palabraCompletada+  letra.value
@@ -162,6 +162,7 @@ verificar = false
                 intentos = "Ya no tienes mas intentos"
                  img.src = `images/${intentosFront}.png`
                  boton.disabled = true
+                 alert("La palabra era: "+palabra)
             }
             intentosHtml.textContent = intentos
            
